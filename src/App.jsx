@@ -264,6 +264,14 @@ const App = () => {
         </div>
       )}
       <ToastContainer position="top-center" autoClose={3000} theme="dark" />
+      <footer className="text-center my-8">
+        <p>
+          {t("footer")}{" "}
+          <a href={t("footerLink")} className="text-blue-500 hover:underline">
+            {t("author")}
+          </a>
+        </p>
+      </footer>
     </div>
   );
 };

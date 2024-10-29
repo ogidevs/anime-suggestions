@@ -1,6 +1,9 @@
 {
   "title": "Anime Sugestije",
   "submit": "Nadji Anime",
+  "footer": "Napravljeno sa ❤️ od",
+  "footerLink": "https://github.com/ogidevs/",
+  "author": "Ognjen",
   "error": {
     "notFound": "Nije pronađeno",
     "fetchingData": "Greška prilikom dohvatanja podataka"
