@@ -15,11 +15,11 @@ const LanguageToggle = () => {
   };
 
   return (
-    <div className="flex justify-center items-center space-x-4">
+    <label className="swap swap-rotate">
+      <input type="checkbox" onClick={() => changeLanguage()} />
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
+        className="swap-on h-8 w-8 fill-current"
         viewBox="0 0 32 32"
       >
         <path fill="#1a3d73" d="M1 11H31V21H1z"></path>
@@ -58,16 +58,10 @@ const LanguageToggle = () => {
           fill="#fff"
         ></path>
       </svg>
-      <input
-        type="checkbox"
-        value="retro"
-        className="toggle"
-        onClick={() => changeLanguage()}
-      />
+
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
+        className="swap-off h-8 w-8 fill-current"
         viewBox="0 0 32 32"
       >
         <rect
@@ -181,7 +175,7 @@ const LanguageToggle = () => {
           d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z"
         ></path>
       </svg>
-    </div>
+    </label>
   );
 };
 

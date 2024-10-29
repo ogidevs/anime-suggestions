@@ -22,21 +22,24 @@ import {
 } from "react-icons/gi";
 import { MdOutlineSportsMartialArts, MdBoy } from "react-icons/md";
 
+import InitialLoad from "./components/InitalLoad";
+import ThemeToggle from "./components/ThemeToggle";
+import LanguageToggle from "./components/LanguageToggle";
 import AnimeList from "./components/AnimeList";
 import AnimeDialog from "./components/AnimeDialog";
 import GenreSelector from "./components/GenreSelector";
 import TypeSelector from "./components/TypeSelector";
-import ThemeToggle from "./components/ThemeToggle";
 import KeywordsSelector from "./components/KeywordsSelector";
 
 import "./App.css";
-import LanguageToggle from "./components/LanguageToggle";
+import Brand from "./components/Brand";
 
 const App = () => {
   const { t } = useTranslation();
   const [animeList, setAnimeList] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [initalLoad, setInitialLoad] = useState(true);
+  const [animeLoading, setAnimeLoading] = useState(false);
   const [noMoreData, setNoMoreData] = useState(false);
   const [selectedMood, setSelectedMood] = useState("modern");
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -148,21 +151,21 @@ const App = () => {
           setNoMoreData(true);
         }
         setAnimeList((prev) => [...prev, ...data.data]);
-        setLoading(false);
+        setAnimeLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         toast.error(t("error.fetchingData") + ": " + error.message);
-        setLoading(false);
+        setAnimeLoading(false);
       });
   };
 
   const handleScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight - 10) {
-      if (!loading && !noMoreData && animeList.length > 0) {
+      if (!animeLoading && !noMoreData && animeList.length > 0) {
         setCurrentPage((prev) => prev + 1);
-        setLoading(true);
+        setAnimeLoading(true);
       }
     }
   };
@@ -197,7 +200,7 @@ const App = () => {
     setCurrentPage(1);
     setNoMoreData(false);
     setAnimeList([]);
-    setLoading(true);
+    setAnimeLoading(true);
   };
 
   const handleImageClick = (e) => {
@@ -229,17 +232,17 @@ const App = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [loading]);
+  }, [animeLoading]);
 
   useEffect(() => {
     if (
       (selectedGenres.length !== 0 || selectedKeywords.length !== 0) &&
       currentPage > 0 &&
-      loading
+      animeLoading
     ) {
       fetchAnime();
     }
-  }, [loading]);
+  }, [animeLoading]);
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
@@ -248,14 +251,20 @@ const App = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => setInitialLoad(false), 1500);
+  }, []);
+  if (initalLoad) {
+    return <InitialLoad />;
+  }
+
   return (
     <div className="container mx-auto px-4">
-      <h1 className="text-4xl font-bold text-center my-8">{t("title")}</h1>
-
-      <div className="flex justify-center items-center space-x-4">
+      <div className="flex justify-between space-x-4 my-2">
         <ThemeToggle />
         <LanguageToggle />
       </div>
+      <Brand />
       <TypeSelector
         selectedMood={selectedMood}
         setSelectedMood={setSelectedMood}
@@ -291,7 +300,7 @@ const App = () => {
           closeDialog={() => setIsAnimeDialogOpen(false)}
         />
       )}
-      {loading && (
+      {animeLoading && (
         <div className="my-4 mx-auto justify-center flex">
           <AiOutlineLoading3Quarters />
         </div>
@@ -305,6 +314,7 @@ const App = () => {
             target="_blank"
             className="text-blue-500 hover:underline"
           >
+            {" "}
             {t("author")}
           </a>
         </p>
