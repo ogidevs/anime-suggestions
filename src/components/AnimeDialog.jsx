@@ -2,6 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const AnimeDialog = ({ isDialogOpen, animeInfo, closeDialog }) => {
   const { t } = useTranslation();
@@ -34,41 +35,28 @@ const AnimeDialog = ({ isDialogOpen, animeInfo, closeDialog }) => {
         onClick={(e) => e.stopPropagation()}
         style={{ maxHeight: "80vh", overflowY: "auto" }}
       >
-        <h2 className="text-2xl font-bold mb-2">{animeInfo.title}</h2>
-        <p className="text-justify lg:text-base">{animeInfo.content}</p>
-        <p className="block my-4 border-b border-gray-300"></p>
-        <p>
-          {t("animeDialog.watchAnime")}:{" "}
-          {animeInfo.trailer.url !== null && (
-            <a
-              href={animeInfo.trailer.url}
-              target="_blank"
-              className="text-blue-500 hover:underline"
-            >
-              ({t("animeDialog.trailer")})
-            </a>
-          )}
-        </p>
-        <div className="flex flex-wrap justify-center">
-          <p className="flex">
-            {" "}
+        <div className="flex flex-row justify-between">
+          <h2 className="text-2xl font-bold mb-2">{animeInfo.title}</h2>
+          <div className="flex justify-center items-center">
+            <strong>{t("animeDialog.aniCrush")}</strong>
             <a
               href={`https://anicrush.to/search?keyword=${animeInfo.title}`}
               target="_blank"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:underline mx-2"
             >
-              {" "}
-              {t("animeDialog.aniCrush")}
+              <FaExternalLinkAlt className="transform hover:scale-110 transition-transform ease-in-out duration-300" />
             </a>
-          </p>
+          </div>
         </div>
+        <p className="text-justify lg:text-base">{animeInfo.content}</p>
+
         {characters.length === 0 && (
           <>
             <button
               className="btn btn-primary mt-4"
               onClick={() => fetchAnimeCharacters()}
             >
-              {t("animeDialog.animeCharacters")}
+              {t("animeDialog.fetchCharacters")}
             </button>
           </>
         )}
@@ -91,6 +79,25 @@ const AnimeDialog = ({ isDialogOpen, animeInfo, closeDialog }) => {
             </div>
           ))}
         </div>
+        {animeInfo.trailer !== null && (
+          <>
+            <p className="block my-4 border-b border-gray-300"></p>
+            <h2 className="text-xl font-bold mb-2">
+              {t("animeDialog.trailer")}:{" "}
+            </h2>
+            <span className="flex flex-wrap justify-center">
+              <iframe
+                src={`https://www.youtube.com/embed/${animeInfo.trailer?.url.split("?v=")[1]}`}
+                title={animeInfo.title}
+                width="560"
+                height="315"
+                allowFullScreen
+                className="mx-auto"
+              ></iframe>
+            </span>
+          </>
+        )}
+
         <button className="btn btn-error mt-4" onClick={() => closeDialog()}>
           {t("animeDialog.close")}
         </button>
