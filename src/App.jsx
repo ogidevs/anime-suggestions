@@ -27,6 +27,7 @@ import AnimeDialog from "./components/AnimeDialog";
 import GenreSelector from "./components/GenreSelector";
 import TypeSelector from "./components/TypeSelector";
 import ThemeToggle from "./components/ThemeToggle";
+import KeywordsSelector from "./components/KeywordsSelector";
 
 import "./App.css";
 import LanguageToggle from "./components/LanguageToggle";
@@ -39,6 +40,7 @@ const App = () => {
   const [noMoreData, setNoMoreData] = useState(false);
   const [selectedMood, setSelectedMood] = useState("modern");
   const [selectedGenres, setSelectedGenres] = useState([]);
+  const [selectedKeywords, setSelectedKeywords] = useState([]);
   const [isAnimeDialogOpen, setIsAnimeDialogOpen] = useState(false);
   const [animeInfo, setAnimeInfo] = useState({ title: "", content: "" });
   const imageRef = useRef(null);
@@ -124,8 +126,12 @@ const App = () => {
   ];
 
   const fetchAnime = () => {
+    const genresQuery =
+      selectedGenres.length === 0 ? "" : `&genres=${selectedGenres.join(",")}`;
+    const keywordQuery =
+      selectedKeywords.length === 0 ? "" : `&q=${selectedKeywords.join(",")}`;
     const apiUrl =
-      `https://api.jikan.moe/v4/anime?genres=${selectedGenres.join(",")}&page=${currentPage}&limit=9&order_by=score&sort=desc` +
+      `https://api.jikan.moe/v4/anime?page=${currentPage}${genresQuery}${keywordQuery}&limit=9&order_by=score&sort=desc` +
       (selectedMood === "modern"
         ? `&start_date=2010-01-01`
         : `&end_date=2005-01-01`);
@@ -169,6 +175,24 @@ const App = () => {
     );
   };
 
+  const handleKeywordSelect = (keyword) => {
+    setSelectedKeywords((prevSelected) =>
+      prevSelected.includes(keyword)
+        ? prevSelected.filter((s) => s !== keyword)
+        : [...prevSelected, keyword]
+    );
+  };
+
+  const handleKeywordDelete = (keyword, all = false) => {
+    if (all) {
+      setSelectedKeywords([]);
+      return;
+    }
+    setSelectedKeywords((prevSelected) =>
+      prevSelected.filter((s) => s !== keyword)
+    );
+  };
+
   const handleSubmit = () => {
     setCurrentPage(1);
     setNoMoreData(false);
@@ -208,7 +232,11 @@ const App = () => {
   }, [loading]);
 
   useEffect(() => {
-    if (selectedGenres.length !== 0 && currentPage > 0 && loading) {
+    if (
+      (selectedGenres.length !== 0 || selectedKeywords.length !== 0) &&
+      currentPage > 0 &&
+      loading
+    ) {
       fetchAnime();
     }
   }, [loading]);
@@ -237,8 +265,13 @@ const App = () => {
         selectedGenres={selectedGenres}
         handleGenreToggle={handleGenreToggle}
       />
+      <KeywordsSelector
+        selectedKeywords={selectedKeywords}
+        handleKeywordSelect={handleKeywordSelect}
+        handleKeywordDelete={handleKeywordDelete}
+      />
       <button
-        disabled={selectedGenres.length === 0}
+        disabled={selectedGenres.length === 0 && selectedKeywords.length === 0}
         className="btn btn-primary my-5 mx-auto block"
         onClick={handleSubmit}
       >
@@ -267,7 +300,11 @@ const App = () => {
       <footer className="text-center my-8">
         <p>
           {t("footer")}{" "}
-          <a href={t("footerLink")} className="text-blue-500 hover:underline">
+          <a
+            href={t("footerLink")}
+            target="_blank"
+            className="text-blue-500 hover:underline"
+          >
             {t("author")}
           </a>
         </p>

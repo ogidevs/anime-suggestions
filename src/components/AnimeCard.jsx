@@ -77,18 +77,19 @@ const AnimeCard = ({ anime, openAnimeDialog, handleImageClick }) => {
         </p>
         <p className="text-sm">
           {t("animeCard.genres")}:{" "}
-          {anime.genres
-            .map((genre) => (
-              <a
-                key={genre.mal_id}
-                href={genre.url}
-                target="_blank"
-                className="text-blue-500 hover:underline"
-              >
-                {genre.name}
-              </a>
-            ))
-            .reduce((prev, curr) => [prev, ", ", curr])}
+          {anime.genres?.length > 0 &&
+            anime.genres
+              .map((genre) => (
+                <a
+                  key={genre.mal_id}
+                  href={genre.url}
+                  target="_blank"
+                  className="text-blue-500 hover:underline"
+                >
+                  {genre.name}
+                </a>
+              ))
+              .reduce((prev, curr) => [prev, ", ", curr])}
         </p>
 
         {anime.themes.length > 0 && (

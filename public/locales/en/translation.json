@@ -59,6 +59,12 @@
       "shounen": "Shounen"
     }
   },
+  "keywordsSelector": {
+    "title": "Add Keywords/Alternative Titles",
+    "add": "Add",
+    "clear": "Clear",
+    "placeholder": "Enter Keywords"
+  },
   "typeSelector": {
     "title": "Select Type of Anime",
     "modern": "Modern",
