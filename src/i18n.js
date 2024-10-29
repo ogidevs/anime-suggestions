@@ -18,7 +18,7 @@ i18n
     },
     backend: {
       // path to translations
-      loadPath: "/anime-suggestions/locales/{{lng}}/translation.json",
+      loadPath: "/locales/{{lng}}/translation.json",
     },
   });
 
