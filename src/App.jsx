@@ -161,13 +161,40 @@ const App = () => {
   };
 
   const handleScroll = () => {
-    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+    const scrollTop =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    const clientHeight = window.innerHeight;
+    const scrollHeight = document.documentElement.scrollHeight;
+
     if (scrollTop + clientHeight >= scrollHeight - 10) {
       if (!animeLoading && !noMoreData && animeList.length > 0) {
         setCurrentPage((prev) => prev + 1);
         setAnimeLoading(true);
       }
     }
+  };
+
+  // Throttle function to limit the frequency of scroll events
+  const throttle = (func, limit) => {
+    let lastFunc;
+    let lastRan;
+    return function (...args) {
+      if (!lastRan) {
+        func.apply(this, args);
+        lastRan = Date.now();
+      } else {
+        clearTimeout(lastFunc);
+        lastFunc = setTimeout(
+          () => {
+            if (Date.now() - lastRan >= limit) {
+              func.apply(this, args);
+              lastRan = Date.now();
+            }
+          },
+          limit - (Date.now() - lastRan)
+        );
+      }
+    };
   };
 
   const handleGenreToggle = (genre) => {
@@ -228,9 +255,11 @@ const App = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const throttledHandleScroll = throttle(handleScroll, 500);
+    window.addEventListener("scroll", throttledHandleScroll, { passive: true });
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", throttledHandleScroll);
     };
   }, [animeLoading]);
 
