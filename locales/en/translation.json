@@ -1,0 +1,65 @@
+{
+  "title": "Anime Suggestions",
+  "submit": "Find Anime",
+  "error": {
+    "notFound": "Not Found",
+    "fetchingData": "Error Fetching Data"
+  },
+  "animeCard": {
+    "aired": "Aired",
+    "rank": "Rank",
+    "type": "Type",
+    "source": "Source",
+    "episodes": "Episodes",
+    "duration": "Duration",
+    "rating": "Rating",
+    "score": "Score",
+    "numOfScores": "Scored By",
+    "status": "Status",
+    "genres": "Genres",
+    "themes": "Themes",
+    "licensors": "Licensors",
+    "studios": "Studios",
+    "moreInfo": "More Info",
+    "charactersInfo": "Characters Info",
+    "noEnglishTitle": "No English Title"
+  },
+  "animeDialog": {
+    "watchAnime": "Watch Anime",
+    "animeCharacters": "Anime Characters",
+    "trailer": "Trailer",
+    "aniCrush": "AniCrush",
+    "close": "Close"
+  },
+  "animeList": {
+    "noAnime": "No Anime Found :(",
+    "noAnimeDesc": "No anime matches your query. Try again with different genres."
+  },
+  "genreSelector": {
+    "title": "Select Genres You Are Interested In",
+    "genres": {
+      "action": "Action",
+      "adventure": "Adventure",
+      "comedy": "Comedy",
+      "mythology": "Mythology",
+      "mystery": "Mystery",
+      "drama": "Drama",
+      "ecchi": "Ecchi",
+      "fantasy": "Fantasy",
+      "horror": "Horror",
+      "sliceOfLife": "Slice of Life",
+      "romance": "Romance",
+      "sports": "Sports",
+      "suspense": "Suspense",
+      "martialArts": "Martial Arts",
+      "school": "School",
+      "sciFi": "Sci-Fi",
+      "shounen": "Shounen"
+    }
+  },
+  "typeSelector": {
+    "title": "Select Type of Anime",
+    "modern": "Modern",
+    "old": "Old"
+  }
+}

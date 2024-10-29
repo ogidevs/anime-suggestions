@@ -1,0 +1,65 @@
+{
+  "title": "Anime Sugestije",
+  "submit": "Nadji Anime",
+  "error": {
+    "notFound": "Nije pronađeno",
+    "fetchingData": "Greška prilikom dohvatanja podataka"
+  },
+  "animeCard": {
+    "aired": "Emitovano",
+    "rank": "Rang",
+    "type": "Tip",
+    "source": "Izvor",
+    "episodes": "Epizode",
+    "duration": "Trajanje",
+    "rating": "Ocena",
+    "score": "Rezultat",
+    "numOfScores": "Ocena",
+    "status": "Status",
+    "genres": "Žanrovi",
+    "themes": "Teme",
+    "licensors": "Licence",
+    "studios": "Studiji",
+    "moreInfo": "Više informacija",
+    "charactersInfo": "Informacije o likovima",
+    "noEnglishTitle": "Nema engleskog naslova"
+  },
+  "animeDialog": {
+    "watchAnime": "Gledaj anime",
+    "animeCharacters": "Karakteri anime-a",
+    "trailer": "Trejler",
+    "aniCrush": "AniCrush",
+    "close": "Zatvori"
+  },
+  "animeList": {
+    "noAnime": "Nema pronadjenih anime-a :(",
+    "noAnimeDesc": "Pokušaj ponovo sa drugim žanrovima."
+  },
+  "genreSelector": {
+    "title": "Izaberi žanrove koji te interesuju",
+    "genres": {
+      "action": "Akcija",
+      "adventure": "Avantura",
+      "comedy": "Komedija",
+      "mythology": "Mitologija",
+      "mystery": "Misterija",
+      "drama": "Drama",
+      "ecchi": "Eči",
+      "fantasy": "Fantazija",
+      "horror": "Horor",
+      "sliceOfLife": "Deo života",
+      "romance": "Romansa",
+      "sports": "Sport",
+      "suspense": "Napetost",
+      "martialArts": "Borbene veštine",
+      "school": "Škola",
+      "sciFi": "Naučna fantastika",
+      "shounen": "Šounen"
+    }
+  },
+  "typeSelector": {
+    "title": "Izaberi tip anime-a",
+    "modern": "Moderni",
+    "old": "Stari"
+  }
+}
