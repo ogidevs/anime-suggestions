@@ -1,5 +1,6 @@
 {
-  "title": "Anime Suggestions",
+  "brand": "AniAtlas",
+  "brandDesc": "An atlas of anime, mapped out for your pleasure.",
   "submit": "Find Anime",
   "footer": "Made with ❤️ by",
   "footerLink": "https://github.com/ogidevs/",
