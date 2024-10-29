@@ -2,6 +2,8 @@
   "brand": "AniAtlas",
   "brandDesc": "An atlas of anime, mapped out for your pleasure.",
   "submit": "Find Anime",
+  "loading": "Loading, please wait...",
+  "loadingComplete": "Loaded!",
   "footer": "Made with ❤️ by",
   "footerLink": "https://github.com/ogidevs/",
   "author": "Ognjen",
@@ -26,7 +28,7 @@
     "studios": "Studios",
     "moreInfo": "More Info",
     "charactersInfo": "Characters Info",
-    "noEnglishTitle": "No English Title"
+    "noAltTitle": "No Alternative Title"
   },
   "animeDialog": {
     "fetchCharacters": "Fetch Characters",

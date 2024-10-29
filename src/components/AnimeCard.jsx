@@ -41,7 +41,7 @@ const AnimeCard = ({ anime, openAnimeDialog, handleImageClick }) => {
                 ? anime.title
                 : anime.title_english?.length > 0
                   ? anime.title_english
-                  : t("animeCard.noEnglishTitle")}
+                  : t("animeCard.noAltTitle")}
             </span>{" "}
             - {t("animeCard.rank")} {anime.rank}
           </h3>

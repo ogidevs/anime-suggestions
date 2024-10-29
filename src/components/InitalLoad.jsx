@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { FaSpinner } from "react-icons/fa";
 import Brand from "./Brand";
+import { t } from "i18next";
 
 const InitialLoad = () => {
   const [progress, setProgress] = useState(0);
@@ -29,7 +30,7 @@ const InitialLoad = () => {
             className={`animate-spin text-primary h-24 w-24 mx-auto ${progress === 100 && "hidden"}`}
           />
           <p className="text-lg font-semibold text-gray-700">
-            {progress < 100 ? "Loading, please wait..." : "Loaded!"}
+            {progress < 100 ? t("loading") : t("loadingComplete")}
           </p>
           <progress
             className="progress w-56 bg-primary-focus"
