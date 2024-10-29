@@ -1,7 +1,7 @@
 {
   "title": "Anime Sugestije",
   "submit": "Nadji Anime",
-  "footer": "Napravljeno sa ❤️ od",
+  "footer": "Napravio sa ❤️ ",
   "footerLink": "https://github.com/ogidevs/",
   "author": "Ognjen",
   "error": {
@@ -58,6 +58,12 @@
       "sciFi": "Naučna fantastika",
       "shounen": "Šounen"
     }
+  },
+  "keywordsSelector": {
+    "title": "Dodaj ključne reči/Alternativne naslove",
+    "add": "Dodaj",
+    "clear": "Očisti",
+    "placeholder": "Unesi Ključne Reči"
   },
   "typeSelector": {
     "title": "Izaberi tip anime-a",
