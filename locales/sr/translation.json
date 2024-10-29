@@ -2,6 +2,8 @@
   "brand": "AniAtlas",
   "brandDesc": "Atlas anime-a, mapiran za tvoje zadovoljstvo.",
   "submit": "Nadji Anime",
+  "loading": "Učitavanje, molimo sačekajte...",
+  "loadingComplete": "Učitano!",
   "footer": "Napravio s ❤️",
   "footerLink": "https://github.com/ogidevs/anime-suggestions",
   "author": "Ognjen",
@@ -26,7 +28,7 @@
     "studios": "Studiji",
     "moreInfo": "Više informacija",
     "charactersInfo": "Informacije o likovima",
-    "noEnglishTitle": "Nema engleskog naslova"
+    "noAltTitle": "Nema drugog naslova"
   },
   "animeDialog": {
     "fetchCharacters": "Učitaj karaktere",
