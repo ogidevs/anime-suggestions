@@ -2,7 +2,7 @@
 import React from "react";
 
 const ThemeToggle = () => (
-  <label className="swap swap-rotate">
+  <label className="swap">
     {/* this hidden checkbox controls the state */}
     <input type="checkbox" value="retro" className="theme-controller" />
 

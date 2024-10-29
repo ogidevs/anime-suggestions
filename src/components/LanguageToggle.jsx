@@ -15,7 +15,7 @@ const LanguageToggle = () => {
   };
 
   return (
-    <label className="swap swap-rotate">
+    <label className="swap">
       <input type="checkbox" onClick={() => changeLanguage()} />
       <svg
         xmlns="http://www.w3.org/2000/svg"
