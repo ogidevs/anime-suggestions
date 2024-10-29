@@ -21,12 +21,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        env:
-          NPM_CONFIG_LOGLEVEL: verbose
-
-      - name: Show npm debug log
-        if: failure()
-        run: cat /home/runner/.npm/_logs/*.log
 
       - name: Build project
         run: npm run build
