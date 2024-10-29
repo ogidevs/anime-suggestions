@@ -1,6 +1,9 @@
 {
   "title": "Anime Suggestions",
   "submit": "Find Anime",
+  "footer": "Made with ❤️ by",
+  "footerLink": "https://github.com/ogidevs/",
+  "author": "Ognjen",
   "error": {
     "notFound": "Not Found",
     "fetchingData": "Error Fetching Data"
