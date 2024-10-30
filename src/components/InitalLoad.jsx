@@ -1,6 +1,5 @@
 // components/InitialLoad.jsx
 import { useState, useEffect } from "react";
-import { FaSpinner } from "react-icons/fa";
 import Brand from "./Brand";
 import { t } from "i18next";
 
@@ -22,18 +21,15 @@ const InitialLoad = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-base-200">
-      <Brand />
-      <div className="flex items-center justify-center flex-col">
-        <div className="card bg-base-100 shadow-lg p-8 text-center space-y-4">
-          <FaSpinner
-            className={`animate-spin text-primary h-24 w-24 mx-auto ${progress === 100 && "hidden"}`}
-          />
+    <div className="flex flex-col min-h-screen bg-base-200 skeleton">
+      <div className="flex items-center justify-center flex-center my-32">
+        <div className="card bg-base-100 shadow-lg p-8 text-center">
+          <Brand />
           <p className="text-lg font-semibold text-gray-700">
             {progress < 100 ? t("loading") : t("loadingComplete")}
           </p>
           <progress
-            className="progress w-56 bg-primary-focus"
+            className="progress w-56 bg-primary-focus mx-auto my-4"
             value={progress}
             max="100"
           ></progress>

@@ -35,7 +35,7 @@ import "./App.css";
 import Brand from "./components/Brand";
 
 const App = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [animeList, setAnimeList] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [initalLoad, setInitialLoad] = useState(true);
@@ -127,6 +127,13 @@ const App = () => {
     },
     { name: t("genreSelector.genres.shounen"), value: "27", icon: <MdBoy /> },
   ];
+
+  const loadCookies = () => {
+    const lang = localStorage.getItem("userLang");
+    if (lang) {
+      i18n.changeLanguage(lang);
+    }
+  };
 
   const fetchAnime = () => {
     const genresQuery =
@@ -281,6 +288,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    loadCookies();
     setTimeout(() => setInitialLoad(false), 1500);
   }, []);
   if (initalLoad) {
