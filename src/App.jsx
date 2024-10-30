@@ -329,6 +329,7 @@ const App = () => {
         noMoreData={noMoreData}
         openAnimeDialog={openAnimeDialog}
         handleImageClick={handleImageClick}
+        searchingAnime={animeLoading}
       />
       {isAnimeDialogOpen && (
         <AnimeDialog

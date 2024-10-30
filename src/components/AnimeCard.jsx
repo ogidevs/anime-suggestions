@@ -7,14 +7,6 @@ const AnimeCard = ({ anime, openAnimeDialog, handleImageClick }) => {
   const { t } = useTranslation();
   const [isJapaneseTitle, setIsJapaneseTitle] = useState(true);
 
-  const translateText = async (text) => {
-    try {
-      const result = await tr(text, { from: "en", to: i18n.resolvedLanguage });
-      return result.text;
-    } catch (error) {
-      console.error("Translation error:", error);
-    }
-  };
   return (
     <div
       key={`${anime.mal_id}`}
