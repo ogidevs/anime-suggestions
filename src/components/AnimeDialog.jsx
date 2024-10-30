@@ -79,7 +79,7 @@ const AnimeDialog = ({ isDialogOpen, animeInfo, closeDialog }) => {
             </div>
           ))}
         </div>
-        {animeInfo.trailer !== null && (
+        {animeInfo.trailer !== null && animeInfo.trailer.url && (
           <>
             <p className="block my-4 border-b border-gray-300"></p>
             <h2 className="text-xl font-bold mb-2">
@@ -87,7 +87,7 @@ const AnimeDialog = ({ isDialogOpen, animeInfo, closeDialog }) => {
             </h2>
             <span className="flex flex-wrap justify-center">
               <iframe
-                src={`https://www.youtube.com/embed/${animeInfo.trailer?.url.split("?v=")[1]}`}
+                src={`https://www.youtube.com/embed/${animeInfo.trailer?.url?.split("?v=")[1]}`}
                 title={animeInfo.title}
                 width="560"
                 height="315"
