@@ -9,7 +9,39 @@
   "author": "Ognjen",
   "error": {
     "notFound": "Nije pronađeno",
-    "fetchingData": "Greška prilikom dohvatanja podataka"
+    "fetchingData": "Greška prilikom dohvatanja podataka",
+    "general": "Došlo je do greške, pokušaj ponovo."
+  },
+  "login": {
+    "success": "Prijava uspešna!",
+    "error": "Prijava neuspešna! Pokušaj ponovo.",
+    "title": "Prijava",
+    "desc": "Prijavi se da sačuvaš svoje omiljene anime i dobiješ personalizovane preporuke.",
+    "username": "Korisničko ime",
+    "usernamePlaceholder": "Unesi svoje korisničko ime",
+    "password": "Lozinka",
+    "passwordPlaceholder": "Unesi svoju lozinku"
+  },
+  "register": {
+    "success": "Registracija uspešna!",
+    "error": "Registracija neuspešna! Pokušaj ponovo.",
+    "title": "Registracija",
+    "desc": "Registruj se da sačuvaš svoje omiljene anime i dobiješ personalizovane preporuke.",
+    "username": "Korisničko ime",
+    "usernamePlaceholder": "Unesi svoje korisničko ime",
+    "email": "Email",
+    "emailPlaceholder": "Unesi svoj email",
+    "password": "Lozinka",
+    "passwordPlaceholder": "Unesi svoju lozinku",
+    "passwordMismatch": "Lozinke se ne poklapaju!",
+    "confirmPassword": "Potvrdi Lozinku",
+    "confirmPasswordPlaceholder": "Potvrdi svoju lozinku"
+  },
+  "logout": {
+    "success": "Odjava uspešna!",
+    "error": "Odjava neuspešna! Pokušaj ponovo.",
+    "title": "Odjava",
+    "desc": "Odjavi se da sačuvaš svoje omiljene anime i dobiješ personalizovane preporuke."
   },
   "animeCard": {
     "aired": "Emitovano",

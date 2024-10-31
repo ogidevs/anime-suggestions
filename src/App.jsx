@@ -2,7 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTranslation } from "react-i18next";
+import { useAuth } from './AuthContext';
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { IoSettingsOutline } from "react-icons/io5";
+import { CiLogout } from "react-icons/ci";
 import {
   GiFragmentedSword,
   GiRunningNinja,
@@ -33,8 +36,11 @@ import KeywordsSelector from "./components/KeywordsSelector";
 
 import "./App.css";
 import Brand from "./components/Brand";
+import Login from "./components/Login";
+import ProfileHeader from "./components/ProfileHeader";
 
 const App = () => {
+  const { isAuthenticated, logout } = useAuth();
   const { t, i18n } = useTranslation();
   const [animeList, setAnimeList] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
@@ -296,12 +302,19 @@ const App = () => {
   }
 
   return (
-    <div className="container mx-auto px-4">
+    <>
+      <div className="container mx-auto px-4">
       <div className="flex justify-between space-x-4 my-2">
         <ThemeToggle />
-        <LanguageToggle />
+        <ProfileHeader />
+        <div className="flex flex-end flex-wrap text-center justify-center items-center">
+          <LanguageToggle />
+          <CiLogout onClick={logout} className="text-lg cursor-pointer m-2 transition duration-300 ease-in-out transform hover:scale-110 self-center text-red-500 text-center"/>
+        </div>
       </div>
       <Brand />
+      {isAuthenticated ? (
+      <>
       <TypeSelector
         selectedMood={selectedMood}
         setSelectedMood={setSelectedMood}
@@ -316,13 +329,15 @@ const App = () => {
         handleKeywordSelect={handleKeywordSelect}
         handleKeywordDelete={handleKeywordDelete}
       />
-      <button
-        disabled={selectedGenres.length === 0 && selectedKeywords.length === 0}
-        className="btn btn-primary my-5 mx-auto block"
-        onClick={handleSubmit}
-      >
+      <div className="flex justify-center w-full">
+        <button
+          disabled={selectedGenres.length === 0 && selectedKeywords.length === 0}
+          className="btn btn-primary my-5 mx-auto block"
+          onClick={handleSubmit}
+        >
         {t("submit")}
-      </button>
+        </button>
+      </div>
       <AnimeList
         animeList={animeList}
         currentPage={currentPage}
@@ -343,7 +358,6 @@ const App = () => {
           <AiOutlineLoading3Quarters />
         </div>
       )}
-      <ToastContainer position="top-center" autoClose={3000} theme="dark" />
       <footer className="text-center my-8">
         <p>
           {t("footer")}{" "}
@@ -357,7 +371,16 @@ const App = () => {
           </a>
         </p>
       </footer>
-    </div>
+      </>
+      ) : (
+        <>
+          <Login />
+        </>
+      )}
+      </div>
+      
+    <ToastContainer position="bottom-center" autoClose={3000} theme="dark" />
+    </>
   );
 };
 

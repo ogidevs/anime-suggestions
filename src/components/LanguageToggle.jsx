@@ -11,12 +11,14 @@ const LanguageToggle = () => {
   };
 
   return (
-    <p
-      className="text-lg cursor-pointer text-gray-500"
-      onClick={changeLanguage}
-    >
-      {i18n.language.toUpperCase() === "SR" ? "EN" : "SR"}
-    </p>
+    <div className="flex items-center justify-center">
+      <p
+        className="text-lg cursor-pointer text-gray-500 transition duration-300 hover:text-gray-700"
+        onClick={changeLanguage}
+      >
+        {i18n.language.toUpperCase() === "SR" ? "EN" : "SR"}
+      </p>
+    </div>
   );
 };
 

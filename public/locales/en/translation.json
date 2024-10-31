@@ -5,11 +5,47 @@
   "loading": "Loading, please wait...",
   "loadingComplete": "Loaded!",
   "footer": "Made with ❤️ by",
-  "footerLink": "https://github.com/ogidevs/",
+  "footerLink": "https://github.com/ogidevs/anime-suggestions",
   "author": "Ognjen",
   "error": {
     "notFound": "Not Found",
-    "fetchingData": "Error Fetching Data"
+    "fetchingData": "Error Fetching Data",
+    "general": "An error occurred, please try again."
+  },
+  "profile": {
+    "username": "Username",
+    "email": "Email"
+  },
+  "login": {
+    "success": "Login Successful!",
+    "error": "Login Failed! Please try again.",
+    "title": "Login",
+    "desc": "Login to save your favorite anime and get personalized recommendations.",
+    "username": "Username",
+    "usernamePlaceholder": "Enter your username",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password"
+  },
+  "register": {
+    "success": "Registration Successful!",
+    "error": "Registration Failed! Please try again.",
+    "title": "Register",
+    "desc": "Register to save your favorite anime and get personalized recommendations.",
+    "username": "Username",
+    "usernamePlaceholder": "Enter your username",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "passwordMismatch": "Passwords do not match!",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password"
+  },
+  "logout": {
+    "success": "Logout Successful!",
+    "error": "Logout Failed! Please try again.",
+    "title": "Logout",
+    "desc": "Logout to save your favorite anime and get personalized recommendations."
   },
   "animeCard": {
     "aired": "Aired",
